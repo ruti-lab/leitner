@@ -1,0 +1,34 @@
+{
+    "name": "leitner",
+    "version": "0.1.0",
+    "description": "",
+    "main": "src/app.ts",
+    "scripts": {
+        "play": "webpack --mode=development --watch",
+        "build": "webpack --mode=production",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ruti-lab/leitner.git"
+    },
+    "author": "RUTI-lab",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/ruti-lab/leitner/issues"
+    },
+    "homepage": "https://github.com/ruti-lab/leitner#readme",
+    "dependencies": {
+        "vue": "^2.6.10"
+    },
+    "devDependencies": {
+        "css-loader": "^3.2.0",
+        "html-webpack-plugin": "^3.2.0",
+        "ts-loader": "^6.0.4",
+        "typescript": "^3.5.3",
+        "vue-loader": "^15.7.1",
+        "vue-template-compiler": "^2.6.10",
+        "webpack": "^4.39.2",
+        "webpack-cli": "^3.3.7"
+    }
+}
