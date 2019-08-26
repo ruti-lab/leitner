@@ -10,8 +10,9 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+    $title-size: 50px;
     .greeting {
-        font-size: 50px;
+        font-size: $title-size;
     }
 </style>

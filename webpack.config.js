@@ -1,6 +1,7 @@
 const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     entry: './src/app.ts',
@@ -12,7 +13,6 @@ module.exports = {
             {
                 test: /\.vue$/,
                 loader: 'vue-loader',
-
             },
             {
                 test: /\.ts$/,
@@ -22,16 +22,18 @@ module.exports = {
                 }
             },
             {
-                test: /\.css$/,
+                test: /\.s[ac]ss$/,
                 use: [
-                    'vue-style-loader',
-                    'css-loader'
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'sass-loader',
                 ]
             },
         ],
     },
     plugins: [
         new VueLoaderPlugin(),
+        new MiniCssExtractPlugin(),
         new HtmlWebpackPlugin({
             title: 'Leitner box',
             template: './src/template.html',
