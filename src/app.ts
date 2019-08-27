@@ -1,9 +1,8 @@
-import Vue from 'vue/dist/vue.js';
+import Vue from 'vue/dist/vue';
 
 import Hello from './views/Hello.vue';
 
-new Vue({
-    el: '#app',
+const app = new Vue({
     components: {
         Hello,
     },
@@ -11,3 +10,5 @@ new Vue({
         <Hello></Hello>
     `,
 });
+
+app.$mount('#app');

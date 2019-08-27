@@ -5,13 +5,16 @@
 </template>
 
 <script lang="ts">
-    import Vue from 'vue';
-    import { Component } from "vue-property-decorator";
+import Vue from 'vue';
+import { Component } from 'vue-property-decorator';
 
-    @Component
-    export default class Hello extends Vue {
-        message = 'Hello';
-    }
+@Component
+/**
+ * @class
+ */
+export default class Hello extends Vue {
+    message = 'Leitner';
+}
 </script>
 
 <style scoped lang="scss">
