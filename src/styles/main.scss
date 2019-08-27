@@ -1,0 +1,7 @@
+@import "~materialize-css/sass/components/color-variables";
+
+body {
+  background-color: color("blue-grey", "lighten-5");
+}
+
+@import "~materialize-css/sass/materialize";

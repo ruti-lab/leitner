@@ -1,5 +1,5 @@
 <template>
-    <h1 class="greeting">
+    <h1>
         {{ message }}
     </h1>
 </template>
@@ -17,9 +17,10 @@ export default class Hello extends Vue {
 }
 </script>
 
-<style scoped lang="scss">
-    $title-size: 50px;
-    .greeting {
-        font-size: $title-size;
+<style lang="scss">
+    @import "../styles/main";
+    h1 {
+        text-align: center;
+        color: color("red", "base");
     }
 </style>

@@ -23,6 +23,7 @@
     },
     "homepage": "https://github.com/ruti-lab/leitner#readme",
     "dependencies": {
+        "materialize-css": "^1.0.0",
         "vue": "^2.6.10",
         "vue-property-decorator": "^8.2.2"
     },
