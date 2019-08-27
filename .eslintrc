@@ -1,0 +1,22 @@
+{
+    "parserOptions": {
+        "parser": "@typescript-eslint/parser",
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "modules": true,
+            "experimentalDecorators": true
+        }
+    },
+    "plugins": [
+        "@typescript-eslint",
+        "vue"
+    ],
+    "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "plugin:vue/recommended"
+    ],
+    "env": {
+        "browser": true
+    }
+}

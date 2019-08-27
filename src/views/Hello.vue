@@ -1,5 +1,7 @@
 <template>
-    <h1 class="greeting">{{message}}</h1>
+    <h1 class="greeting">
+        {{ message }}
+    </h1>
 </template>
 
 <script lang="ts">
@@ -8,7 +10,7 @@
 
     @Component
     export default class Hello extends Vue {
-        message:string = 'Hello';
+        message = 'Hello';
     }
 </script>
 
