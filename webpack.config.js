@@ -8,26 +8,42 @@ module.exports = {
     output: {
         path: resolve(__dirname, './public'),
     },
+    resolve: {
+        alias: {
+            vue$: 'vue/dist/vue.esm.js',
+        },
+    },
     module: {
         rules: [
-            {
+            { // Vue
                 test: /\.vue$/,
                 loader: 'vue-loader',
             },
-            {
+            { // TypeScript
                 test: /\.ts$/,
                 loader: 'ts-loader',
                 options: {
                     appendTsSuffixTo: [/\.vue$/],
-                }
+                },
             },
-            {
-                test: /\.s[ac]ss$/,
+            { // CSS
+                test: /\.css$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                ],
+            },
+            { // SASS
+                test: /\.scss$/,
                 use: [
                     MiniCssExtractPlugin.loader,
                     'css-loader',
                     'sass-loader',
-                ]
+                ],
+            },
+            { // Others
+                test: /\.(eot|woff2?|ttf)$/,
+                use: 'file-loader',
             },
         ],
     },

@@ -1,26 +1,36 @@
 <template>
-    <h1>
-        {{ message }}
-    </h1>
+    <v-app>
+        <v-app-bar app>
+            <v-toolbar-title>
+                {{ title }}
+            </v-toolbar-title>
+        </v-app-bar>
+        <v-content>
+            <v-container>
+                <v-btn
+                    fixed
+                    fab
+                    bottom
+                    right
+                    color="primary"
+                >
+                    <v-icon>
+                        mdi-plus
+                    </v-icon>
+                </v-btn>
+            </v-container>
+        </v-content>
+    </v-app>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import { Component } from 'vue-property-decorator';
-
-@Component
-/**
- * @class
- */
-export default class Hello extends Vue {
-    message = 'Leitner';
-}
+export default {
+    name: 'Hello',
+    data: (): Record<string, string> => ({
+        title: 'Leitner',
+    }),
+};
 </script>
 
 <style lang="scss">
-    @import "../styles/main";
-    h1 {
-        text-align: center;
-        color: color("red", "base");
-    }
 </style>

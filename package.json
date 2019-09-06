@@ -5,8 +5,9 @@
     "main": "src/app.ts",
     "scripts": {
         "lint": "eslint --ext .vue --ext .ts src/",
-        "play": "webpack --mode=development --watch",
-        "build": "webpack --mode=production",
+        "clear": "rm -f public/*",
+        "play": "npm run clear && webpack --mode=development --watch",
+        "build": "npm run clear && webpack --mode=production",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "eslintConfig": {
@@ -23,21 +24,23 @@
     },
     "homepage": "https://github.com/ruti-lab/leitner#readme",
     "dependencies": {
-        "materialize-css": "^1.0.0",
+        "@mdi/font": "^4.3.95",
         "vue": "^2.6.10",
-        "vue-property-decorator": "^8.2.2"
+        "vue-property-decorator": "^8.2.2",
+        "vuetify": "^2.0.11"
     },
     "devDependencies": {
-        "@ruti-lab/eslint-config": "^1.0.0",
+        "@ruti-lab/eslint-config": "^1.0.1",
         "@typescript-eslint/eslint-plugin": "^2.0.0",
         "@typescript-eslint/parser": "^2.0.0",
         "css-loader": "^3.2.0",
         "eslint": "^6.2.2",
         "eslint-plugin-vue": "^5.2.3",
+        "file-loader": "^4.2.0",
         "html-webpack-plugin": "^3.2.0",
         "mini-css-extract-plugin": "^0.8.0",
         "node-sass": "^4.12.0",
-        "sass-loader": "^7.3.1",
+        "sass-loader": "^8.0.0",
         "ts-loader": "^6.0.4",
         "typescript": "^3.5.3",
         "vue-loader": "^15.7.1",
