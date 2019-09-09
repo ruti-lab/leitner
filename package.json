@@ -30,6 +30,9 @@
         "vuetify": "^2.0.15"
     },
     "devDependencies": {
+        "@capacitor/android": "^1.2.0",
+        "@capacitor/cli": "^1.2.0",
+        "@capacitor/core": "^1.2.0",
         "@ruti-lab/eslint-config": "^1.0.1",
         "@typescript-eslint/eslint-plugin": "^2.1.0",
         "@typescript-eslint/parser": "^2.1.0",

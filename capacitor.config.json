@@ -1,0 +1,7 @@
+{
+    "appId": "com.rutilab.leitner",
+    "appName": "Leitner",
+    "bundledWebRuntime": false,
+    "npmClient": "npm",
+    "webDir": "public"
+}
