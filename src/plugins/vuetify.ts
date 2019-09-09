@@ -1,4 +1,4 @@
-import Vuetify from 'vuetify';
+import Vuetify from 'vuetify/dist/vuetify.min';
 import 'vuetify/dist/vuetify.min.css';
 import '@mdi/font/css/materialdesignicons.min.css';
 
