@@ -2,6 +2,7 @@ const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
     entry: './src/app.ts',
@@ -12,6 +13,13 @@ module.exports = {
         alias: {
             vue$: 'vue/dist/vue.esm.js',
         },
+    },
+    optimization: {
+        minimizer: [
+            new TerserPlugin({
+                extractComments: true,
+            }),
+        ],
     },
     module: {
         rules: [
