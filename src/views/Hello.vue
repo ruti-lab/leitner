@@ -24,12 +24,16 @@
 </template>
 
 <script lang="ts">
-export default {
-    name: 'Hello',
-    data: (): Record<string, string> => ({
-        title: 'Leitner',
-    }),
-};
+import { Vue, Component, Prop } from 'vue-property-decorator';
+
+@Component
+/**
+ * @class
+ * @extends Vue
+ */
+export default class YourComponent extends Vue {
+    @Prop(String) title = 'Leitner';
+}
 </script>
 
 <style lang="scss">
