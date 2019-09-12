@@ -31,7 +31,7 @@ import { Vue, Component, Prop } from 'vue-property-decorator';
  * @class
  * @extends Vue
  */
-export default class YourComponent extends Vue {
+export default class HelloView extends Vue {
     @Prop(String) title = 'Leitner';
 }
 </script>
