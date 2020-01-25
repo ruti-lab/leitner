@@ -1,0 +1,68 @@
+{
+    "name": "leitner",
+    "version": "0.1.0",
+    "description": "",
+    "main": "src/app.ts",
+    "scripts": {
+        "lint": "eslint --ext .vue --ext .ts src/",
+        "clear": "rm -f public/*",
+        "play": "npm run clear && webpack --mode=development --watch",
+        "build": "npm run clear && webpack --mode=production",
+        "test": "ava"
+    },
+    "ava": {
+        "compileEnhancements": false,
+        "extensions": [
+            "ts"
+        ],
+        "require": [
+            "esm",
+            "ts-node/register"
+        ]
+    },
+    "eslintConfig": {
+        "extends": "@ruti-lab/eslint-config"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ruti-lab/leitner.git"
+    },
+    "author": "RUTI-lab",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/ruti-lab/leitner/issues"
+    },
+    "homepage": "https://github.com/ruti-lab/leitner#readme",
+    "dependencies": {
+        "@mdi/font": "^4.3.95",
+        "vue": "^2.6.10",
+        "vue-property-decorator": "^8.2.2",
+        "vuetify": "^2.0.15"
+    },
+    "devDependencies": {
+        "@capacitor/android": "^1.2.0",
+        "@capacitor/cli": "^1.2.0",
+        "@capacitor/core": "^1.2.0",
+        "@ruti-lab/eslint-config": "^1.0.1",
+        "@typescript-eslint/eslint-plugin": "^2.1.0",
+        "@typescript-eslint/parser": "^2.1.0",
+        "ava": "^2.3.0",
+        "css-loader": "^3.2.0",
+        "eslint": "^6.3.0",
+        "eslint-plugin-vue": "^5.2.3",
+        "esm": "^3.2.25",
+        "file-loader": "^4.2.0",
+        "html-webpack-plugin": "^3.2.0",
+        "mini-css-extract-plugin": "^0.8.0",
+        "node-sass": "^4.12.0",
+        "sass-loader": "^8.0.0",
+        "terser-webpack-plugin": "^2.0.1",
+        "ts-loader": "^6.0.4",
+        "ts-node": "^8.3.0",
+        "typescript": "^3.6.2",
+        "vue-loader": "^15.7.1",
+        "vue-template-compiler": "^2.6.10",
+        "webpack": "^4.39.3",
+        "webpack-cli": "^3.3.8"
+    }
+}
