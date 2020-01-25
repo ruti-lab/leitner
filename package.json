@@ -6,8 +6,8 @@
     "scripts": {
         "lint": "eslint --ext .vue --ext .ts src/",
         "clear": "rm -rf public/*",
-        "play": "npm run clear && webpack --mode=development --watch",
         "build": "npm run clear && webpack --mode=production",
+        "dev": "npm run clear && webpack-dev-server --mode=development --open",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "eslintConfig": {
@@ -27,6 +27,7 @@
         "@mdi/font": "^4.8.95",
         "vue": "^2.6.11",
         "vue-property-decorator": "^8.3.0",
+        "vue-router": "^3.1.5",
         "vuetify": "^2.2.6"
     },
     "devDependencies": {
@@ -49,8 +50,10 @@
         "ts-node": "^8.6.2",
         "typescript": "^3.7.5",
         "vue-loader": "^15.8.3",
+        "vue-style-loader": "^4.1.2",
         "vue-template-compiler": "^2.6.11",
         "webpack": "^4.41.5",
-        "webpack-cli": "^3.3.10"
+        "webpack-cli": "^3.3.10",
+        "webpack-dev-server": "^3.10.1"
     }
 }
