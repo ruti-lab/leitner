@@ -1,16 +1,14 @@
 import Vue from 'vue/dist/vue.esm';
 import vuetify from './plugins/vuetify.ts';
 
-import Hello from './views/Hello.vue';
+import Home from './views/Home.vue';
 
 const app = new Vue({
     vuetify,
     components: {
-        Hello,
+        Home,
     },
-    template: `
-        <Hello/>
-    `,
+    template: '<Home/>',
 });
 
 app.$mount('#app');
