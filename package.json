@@ -8,10 +8,20 @@
         "clear": "rm -rf public/*",
         "play": "npm run clear && webpack --mode=development --watch",
         "build": "npm run clear && webpack --mode=production",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "ava"
     },
     "eslintConfig": {
         "extends": "@ruti-lab/eslint-config"
+    },
+    "ava": {
+        "compileEnhancements": false,
+        "extensions": [
+            "ts"
+        ],
+        "require": [
+            "esm",
+            "ts-node/register"
+        ]
     },
     "repository": {
         "type": "git",
@@ -36,6 +46,7 @@
         "@ruti-lab/eslint-config": "^1.0.1",
         "@typescript-eslint/eslint-plugin": "^2.17.0",
         "@typescript-eslint/parser": "^2.17.0",
+        "ava": "^3.0.0",
         "css-loader": "^3.4.2",
         "eslint": "^6.8.0",
         "eslint-plugin-vue": "^5.2.3",
