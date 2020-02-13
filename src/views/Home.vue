@@ -69,6 +69,12 @@ export default class Home extends Vue {
                 cardsLeftToAdd: 5,
                 cardsLeftToRehearse: 0,
             },
+            {
+                title: 'Guitar lesson',
+                nbCards: 120,
+                cardsLeftToAdd: 0,
+                cardsLeftToRehearse: 0,
+            },
         ];
     }
 }
