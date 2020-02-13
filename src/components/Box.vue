@@ -38,11 +38,7 @@ import Task from './Task.vue';
 export default class Box extends Vue {
     @Prop(String) title;
     @Prop(Number) nbCards;
-    @Prop(Boolean) cardsLeftToAdd;
-    @Prop(Boolean) cardsLeftToRehearse;
+    @Prop(Number) cardsLeftToAdd;
+    @Prop(Number) cardsLeftToRehearse;
 }
 </script>
-
-<style scoped lang="scss">
-
-</style>

@@ -28,9 +28,16 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator';
+import { Vue, Component } from 'vue-property-decorator';
 import AppBar from '../components/AppBar.vue';
 import Box from '../components/Box.vue';
+
+interface BoxI {
+    title: string;
+    nbCards: number;
+    cardsLeftToAdd: number;
+    cardsLeftToRehearse: number;
+}
 
 @Component({
     components: {
@@ -43,10 +50,26 @@ import Box from '../components/Box.vue';
  * @extends Vue
  */
 export default class Home extends Vue {
-    @Prop(Array) boxes = [];
+    apiUrl = '';
+    boxes: Array<BoxI> = [];
+
+    /**
+     * Fetch data on component mounted
+     */
+    async mounted (): Promise<void> {
+        // const response = await fetch(this.apiUrl);
+        // if (response.ok) {
+        //     this.boxes = await response.json();
+        // }
+        // Todo: Remove mock
+        this.boxes = [
+            {
+                title: 'Learn spanish',
+                nbCards: 10,
+                cardsLeftToAdd: 5,
+                cardsLeftToRehearse: 0,
+            },
+        ];
+    }
 }
 </script>
-
-<style lang="scss">
-
-</style>
