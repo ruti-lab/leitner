@@ -5,7 +5,7 @@
             temporary
             absolute
         >
-            <v-list>
+            <v-list nav>
                 <v-list-item>
                     <!-- TODO: Put in real logged in infos -->
                     <v-list-item-avatar>
@@ -28,6 +28,12 @@
                         <v-list-item-title>{{ settings.name }}</v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
+                <v-divider />
+                <v-list-item>
+                    <v-list-item-title class="caption text-right text--secondary">
+                        v{{ version }}
+                    </v-list-item-title>
+                </v-list-item>
             </v-list>
         </v-navigation-drawer>
         <v-app-bar app>
@@ -47,6 +53,7 @@
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
+import { version } from '../../package.json';
 
 @Component
 /**
@@ -55,6 +62,7 @@ import { Vue, Component } from 'vue-property-decorator';
  */
 export default class AppBar extends Vue {
     showDrawer = false;
+    version = version;
     drawerSettings = [
         {
             icon: 'mdi-account',
