@@ -31,6 +31,7 @@
 import { Vue, Component } from 'vue-property-decorator';
 import AppBar from '../components/AppBar.vue';
 import Box from '../components/Box.vue';
+import { apiURL } from '../constants';
 
 interface BoxI {
     title: string;
@@ -50,32 +51,21 @@ interface BoxI {
  * @extends Vue
  */
 export default class Home extends Vue {
-    apiUrl = '';
     boxes: Array<BoxI> = [];
 
     /**
      * Fetch data on component mounted
      */
     async mounted (): Promise<void> {
-        // const response = await fetch(this.apiUrl);
-        // if (response.ok) {
-        //     this.boxes = await response.json();
-        // }
-        // Todo: Remove mock
-        this.boxes = [
-            {
-                title: 'Learn spanish',
-                nbCards: 10,
-                cardsLeftToAdd: 5,
-                cardsLeftToRehearse: 0,
-            },
-            {
-                title: 'Guitar lesson',
-                nbCards: 120,
-                cardsLeftToAdd: 0,
-                cardsLeftToRehearse: 0,
-            },
-        ];
+        try {
+            const response = await fetch(`${apiURL}/boxes`);
+            if (response.ok) {
+                this.boxes = await response.json();
+            }
+        }
+        catch {
+            // TODO: handle fail state
+        }
     }
 }
 </script>

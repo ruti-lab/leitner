@@ -5,7 +5,6 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
-
 module.exports = (env, options) => {
     process.env.NODE_ENV = options.mode;
     const scssLoader = process.env.NODE_ENV !== 'production' ? 'vue-style-loader' : MiniCssExtractPlugin.loader;
@@ -16,6 +15,7 @@ module.exports = (env, options) => {
             path: resolve(__dirname, './public'),
         },
         resolve: {
+            extensions: ['.ts', '.tsx', '.js'],
             alias: {
                 vue$: 'vue/dist/vue.esm.js',
             },

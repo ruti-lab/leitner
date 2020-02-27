@@ -9,10 +9,10 @@
                 <v-list-item>
                     <!-- TODO: Put in real logged in infos -->
                     <v-list-item-avatar>
-                        <v-img src="https://www.gravatar.com/avatar/e2d3da5485b0ca3b6b0c7d78f428a804?s=40" />
+                        <v-img :src="gravatar" />
                     </v-list-item-avatar>
                     <v-list-item-content>
-                        <v-list-item-title>John Doe</v-list-item-title>
+                        <v-list-item-title>{{ user.name }}</v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
                 <v-divider />
@@ -54,8 +54,24 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
 import { version } from '../../package.json';
+import { apiURL } from '../constants';
 
-@Component
+interface UserI {
+    name: string;
+    handle: string;
+}
+const defaultUser = {
+    name: '',
+    handle: '',
+};
+
+@Component({
+    computed: {
+        gravatar (): string {
+            return `https://www.gravatar.com/avatar/${this.user.handle}?s=40`;
+        },
+    },
+})
 /**
  * @class
  * @extends Vue
@@ -63,6 +79,7 @@ import { version } from '../../package.json';
 export default class AppBar extends Vue {
     showDrawer = false;
     version = version;
+    user: UserI = defaultUser;
     drawerSettings = [
         {
             icon: 'mdi-account',
@@ -83,6 +100,21 @@ export default class AppBar extends Vue {
      */
     toggle (): void {
         this.showDrawer = !this.showDrawer;
+    }
+
+    /**
+     * Fetch data on component mounted
+     */
+    async mounted (): Promise<void> {
+        try {
+            const response = await fetch(`${apiURL}/user`);
+            if (response.ok) {
+                this.user = await response.json();
+            }
+        }
+        catch {
+            // TODO: handle fail state
+        }
     }
 }
 </script>
