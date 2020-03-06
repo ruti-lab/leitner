@@ -2,15 +2,15 @@ import Vue from 'vue/dist/vue.esm';
 import vuetify from './plugins/vuetify.ts';
 import router from './router.ts';
 
-import Home from './views/Home.vue';
+import App from './App.vue';
 
 const app = new Vue({
     vuetify,
     router,
     components: {
-        Home,
+        App,
     },
-    template: '<Home/>',
+    template: '<App/>',
 });
 
 app.$mount('#app');

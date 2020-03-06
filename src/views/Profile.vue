@@ -1,5 +1,26 @@
 <template>
-    <h1>Futur écran de profil</h1>
+    <v-card>
+        <v-list
+            subheader
+            three-line
+        >
+            <v-subheader>Account information</v-subheader>
+
+            <v-list-item>
+                <v-list-item-content>
+                    <v-list-item-title>Lorem ipsum</v-list-item-title>
+                    <v-list-item-subtitle>Voluptas perspiciatis ab quo. Possimus ex numquam natus ducimus assumenda odio quia ea. </v-list-item-subtitle>
+                </v-list-item-content>
+            </v-list-item>
+
+            <v-list-item>
+                <v-list-item-content>
+                    <v-list-item-title>Lorem ipsum</v-list-item-title>
+                    <v-list-item-subtitle>Voluptas perspiciatis ab quo. Possimus ex numquam natus ducimus assumenda odio quia ea. </v-list-item-subtitle>
+                </v-list-item-content>
+            </v-list-item>
+        </v-list>
+    </v-card>
 </template>
 
 <script lang="ts">

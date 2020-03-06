@@ -19,6 +19,7 @@
                 <v-list-item
                     v-for="(settings, index) in drawerSettings"
                     :key="index"
+                    :to="settings.path"
                     link
                 >
                     <v-list-item-icon>
@@ -44,7 +45,7 @@
                 <v-icon>mdi-menu</v-icon>
             </v-btn>
 
-            <v-toolbar-title>
+            <v-toolbar-title @click="goBackHome">
                 Leitner
             </v-toolbar-title>
         </v-app-bar>
@@ -84,14 +85,17 @@ export default class AppBar extends Vue {
         {
             icon: 'mdi-account',
             name: 'Profile',
+            path: '/profile',
         },
         {
             icon: 'mdi-cogs',
             name: 'Settings',
+            path: '/settings',
         },
         {
             icon: 'mdi-information',
             name: 'About',
+            path: '/about',
         },
     ];
 
@@ -111,10 +115,16 @@ export default class AppBar extends Vue {
             if (response.ok) {
                 this.user = await response.json();
             }
-        }
-        catch {
+        } catch {
             // TODO: handle fail state
         }
+    }
+
+    /**
+     * Go back to the home screen
+     */
+    goBackHome (): void {
+        this.$router.push('/');
     }
 }
 </script>

@@ -1,35 +1,31 @@
 <template>
-    <v-app>
-        <AppBar />
-        <v-content>
-            <v-container>
-                <v-row>
-                    <Box
-                        v-for="(box, index) in boxes"
-                        :key="index"
-                        :title="box.title"
-                        :nb-cards="box.nbCards"
-                        :cards-left-to-add="box.cardsLeftToAdd"
-                        :cards-left-to-rehearse="box.cardsLeftToRehearse"
-                    />
-                </v-row>
-            </v-container>
-            <v-btn
-                fixed
-                fab
-                bottom
-                right
-                color="primary"
-            >
-                <v-icon>mdi-plus</v-icon>
-            </v-btn>
-        </v-content>
-    </v-app>
+    <v-content>
+        <v-container>
+            <v-row>
+                <Box
+                    v-for="(box, index) in boxes"
+                    :key="index"
+                    :title="box.title"
+                    :nb-cards="box.nbCards"
+                    :cards-left-to-add="box.cardsLeftToAdd"
+                    :cards-left-to-rehearse="box.cardsLeftToRehearse"
+                />
+            </v-row>
+        </v-container>
+        <v-btn
+            fixed
+            fab
+            bottom
+            right
+            color="primary"
+        >
+            <v-icon>mdi-plus</v-icon>
+        </v-btn>
+    </v-content>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
-import AppBar from '../components/AppBar.vue';
 import Box from '../components/Box.vue';
 import { apiURL } from '../constants';
 
@@ -42,7 +38,6 @@ interface BoxI {
 
 @Component({
     components: {
-        AppBar,
         Box,
     },
 })
@@ -62,8 +57,7 @@ export default class Home extends Vue {
             if (response.ok) {
                 this.boxes = await response.json();
             }
-        }
-        catch {
+        } catch {
             // TODO: handle fail state
         }
     }
