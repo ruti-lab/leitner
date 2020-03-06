@@ -60,6 +60,15 @@ module.exports = (env, options) => {
             watchOptions: {
                 poll: true,
             },
+            proxy: {
+                '/api': {
+                    target: 'https://ruti-rentiel.now.sh/api/mock',
+                    pathRewrite: {
+                        '^/api': '',
+                    },
+                    changeOrigin: true,
+                },
+            },
         },
         plugins: [
             new webpack.HotModuleReplacementPlugin(),

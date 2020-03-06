@@ -55,7 +55,6 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
 import { version } from '../../package.json';
-import { apiURL } from '../constants';
 
 interface UserI {
     name: string;

@@ -27,7 +27,6 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
 import Box from '../components/Box.vue';
-import { apiURL } from '../constants';
 
 interface BoxI {
     title: string;
@@ -53,7 +52,7 @@ export default class Home extends Vue {
      */
     async mounted (): Promise<void> {
         try {
-            const response = await fetch(`${apiURL}/boxes`);
+            const response = await fetch('/api/boxes');
             if (response.ok) {
                 this.boxes = await response.json();
             }
