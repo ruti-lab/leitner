@@ -4,11 +4,12 @@ import Home from './views/Home.vue';
 import Profile from './views/Profile.vue';
 import Settings from './views/Settings.vue';
 import About from './views/About.vue';
+import NewBox from './views/NewBox.vue';
 
 Vue.use(Router);
 
 export default new Router({
-    mode: 'history',
+    // mode: 'history',
     base: process.env.BASE_URL,
     routes: [
         {
@@ -26,6 +27,10 @@ export default new Router({
         {
             path: '/about',
             component: About,
+        },
+        {
+            path: '/new-box',
+            component: NewBox,
         },
     ],
 });

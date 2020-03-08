@@ -18,6 +18,7 @@
             bottom
             right
             color="primary"
+            to="new-box"
         >
             <v-icon>mdi-plus</v-icon>
         </v-btn>
@@ -56,7 +57,8 @@ export default class Home extends Vue {
             if (response.ok) {
                 this.boxes = await response.json();
             }
-        } catch {
+        }
+        catch {
             // TODO: handle fail state
         }
     }
