@@ -1,10 +1,7 @@
 <template>
     <v-app class="app">
         <AppBar class="app-header" />
-        <v-content
-            class="app-content"
-            :class="[isOverflow]"
-        >
+        <v-content>
             <router-view />
         </v-content>
     </v-app>
@@ -15,7 +12,7 @@ import { Vue, Component } from 'vue-property-decorator';
 import AppBar from './components/AppBar.vue';
 
 @Component({
-    name: 'APP',
+    name: 'Leitner',
     components: {
         AppBar,
     },
@@ -28,8 +25,4 @@ export default class App extends Vue {}
 </script>
 
 <style  lang="scss" scoped>
-.app {
-  display: flex;
-  flex-direction: column;
-}
 </style>

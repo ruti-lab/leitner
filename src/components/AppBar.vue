@@ -6,7 +6,7 @@
             absolute
         >
             <v-list nav>
-                <v-list-item>
+                <v-list-item to="/profile">
                     <!-- TODO: Put in real logged in infos -->
                     <v-list-item-avatar>
                         <v-img :src="gravatar" />
@@ -20,7 +20,6 @@
                     v-for="(settings, index) in drawerSettings"
                     :key="index"
                     :to="settings.path"
-                    link
                 >
                     <v-list-item-icon>
                         <v-icon>{{ settings.icon }}</v-icon>
@@ -37,15 +36,17 @@
                 </v-list-item>
             </v-list>
         </v-navigation-drawer>
-        <v-app-bar app>
+        <v-app-bar elevate-on-scroll>
+            <v-app-bar-nav-icon @click="toggleDrawer" />
             <v-btn
                 icon
-                @click="toggle"
+                class="animated-btn"
+                :class="{ hidden: hideBackButton }"
+                to="/"
             >
-                <v-icon>mdi-menu</v-icon>
+                <v-icon>mdi-arrow-left</v-icon>
             </v-btn>
-
-            <v-toolbar-title @click="goBackHome">
+            <v-toolbar-title class="title">
                 Leitner
             </v-toolbar-title>
         </v-app-bar>
@@ -71,6 +72,11 @@ const defaultUser = {
             return `https://www.gravatar.com/avatar/${this.user.handle}?s=40`;
         },
     },
+    watch: {
+        $route (to): void {
+            this.hideBackButton = to.path === '/';
+        },
+    },
 })
 /**
  * @class
@@ -78,14 +84,10 @@ const defaultUser = {
  */
 export default class AppBar extends Vue {
     showDrawer = false;
+    hideBackButton = true;
     version = version;
     user: UserI = defaultUser;
     drawerSettings = [
-        {
-            icon: 'mdi-account',
-            name: 'Profile',
-            path: '/profile',
-        },
         {
             icon: 'mdi-cogs',
             name: 'Settings',
@@ -101,7 +103,7 @@ export default class AppBar extends Vue {
     /**
      * Hide or show the navigation drawer
      */
-    toggle (): void {
+    toggleDrawer (): void {
         this.showDrawer = !this.showDrawer;
     }
 
@@ -109,21 +111,32 @@ export default class AppBar extends Vue {
      * Fetch data on component mounted
      */
     async mounted (): Promise<void> {
+        this.hideBackButton = this.$router.currentRoute.path === '/';
         try {
-            const response = await fetch(`${apiURL}/user`);
+            const response = await fetch('/api/user');
             if (response.ok) {
                 this.user = await response.json();
             }
-        } catch {
+        }
+        catch {
             // TODO: handle fail state
         }
     }
-
-    /**
-     * Go back to the home screen
-     */
-    goBackHome (): void {
-        this.$router.push('/');
-    }
 }
 </script>
+
+<style lang="scss" scoped>
+    .animated-btn {
+        transition: width ease-out .2s;
+        overflow: hidden;
+    }
+
+    .hidden {
+        width: 0 !important;
+        transition-delay: .25s;
+    }
+
+    .title {
+        margin-left: .5em;
+    }
+</style>

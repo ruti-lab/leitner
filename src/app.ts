@@ -1,6 +1,6 @@
 import Vue from 'vue/dist/vue.esm';
-import vuetify from './plugins/vuetify.ts';
-import router from './router.ts';
+import vuetify from './plugins/vuetify';
+import router from './router';
 
 import App from './App.vue';
 
