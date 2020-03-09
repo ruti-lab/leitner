@@ -12,7 +12,6 @@ import { Vue, Component } from 'vue-property-decorator';
 import AppBar from './components/AppBar.vue';
 
 @Component({
-    name: 'Leitner',
     components: {
         AppBar,
     },
@@ -23,6 +22,3 @@ import AppBar from './components/AppBar.vue';
  */
 export default class App extends Vue {}
 </script>
-
-<style  lang="scss" scoped>
-</style>

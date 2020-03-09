@@ -59,17 +59,17 @@ import { version } from '../../package.json';
 
 interface UserI {
     name: string;
-    handle: string;
+    hash: string;
 }
 const defaultUser = {
     name: '',
-    handle: '',
+    hash: '',
 };
 
 @Component({
     computed: {
         gravatar (): string {
-            return `https://www.gravatar.com/avatar/${this.user.handle}?s=40`;
+            return `https://www.gravatar.com/avatar/${this.user.hash}?s=40`;
         },
     },
     watch: {

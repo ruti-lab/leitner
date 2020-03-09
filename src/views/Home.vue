@@ -1,17 +1,16 @@
 <template>
-    <v-content>
-        <v-container>
-            <v-row>
-                <Box
-                    v-for="(box, index) in boxes"
-                    :key="index"
-                    :title="box.title"
-                    :nb-cards="box.nbCards"
-                    :cards-left-to-add="box.cardsLeftToAdd"
-                    :cards-left-to-rehearse="box.cardsLeftToRehearse"
-                />
-            </v-row>
-        </v-container>
+    <v-container>
+        <v-row>
+            <Box
+                v-for="(box, index) in boxes"
+                :id="box.id"
+                :key="index"
+                :title="box.title"
+                :nb-cards="box.nbCards"
+                :cards-left-to-add="box.cardsLeftToAdd"
+                :cards-left-to-rehearse="box.cardsLeftToRehearse"
+            />
+        </v-row>
         <v-btn
             fixed
             fab
@@ -22,7 +21,7 @@
         >
             <v-icon>mdi-plus</v-icon>
         </v-btn>
-    </v-content>
+    </v-container>
 </template>
 
 <script lang="ts">
@@ -30,6 +29,7 @@ import { Vue, Component } from 'vue-property-decorator';
 import Box from '../components/Box.vue';
 
 interface BoxI {
+    id: string;
     title: string;
     nbCards: number;
     cardsLeftToAdd: number;

@@ -2,7 +2,7 @@
     <v-col cols="12">
         <v-hover v-slot="{ hover }">
             <v-card
-                href="/"
+                :to="`box/${id}`"
                 :elevation="hover ? 8 : 1"
                 :disabled="!cardsLeftToAdd && !cardsLeftToRehearse"
             >
@@ -36,6 +36,7 @@ import Task from './Task.vue';
  * @extends Vue
  */
 export default class Box extends Vue {
+    @Prop(String) id;
     @Prop(String) title;
     @Prop(Number) nbCards;
     @Prop(Number) cardsLeftToAdd;
