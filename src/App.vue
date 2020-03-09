@@ -11,6 +11,12 @@
 import { Vue, Component } from 'vue-property-decorator';
 import AppBar from './components/AppBar.vue';
 
+Vue.directive('nofocus', {
+    inserted (el) {
+        el.onfocus = (ev): void => (ev.target as HTMLElement).blur();
+    },
+});
+
 @Component({
     components: {
         AppBar,
