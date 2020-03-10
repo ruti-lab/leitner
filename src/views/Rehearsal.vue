@@ -12,7 +12,7 @@
         <div class="card-list">
             <Card
                 v-for="(card, index) in data"
-                v-show="showCard(index)"
+                v-show="index === current"
                 :key="index"
                 :question="card.question"
                 :answer="card.answer"
@@ -20,7 +20,7 @@
         </div>
         <transition name="scroll-in">
             <v-row
-                v-show="showButtons"
+                v-show="data.length > 0"
                 class="buttons"
             >
                 <v-btn
@@ -61,11 +61,6 @@ import Card from '../components/Card.vue';
     components: {
         Card,
     },
-    computed: {
-        showButtons (): boolean {
-            return this.data.length > 0;
-        },
-    },
 })
 /**
  * @class
@@ -92,15 +87,6 @@ export default class Rehearsal extends Vue {
         catch {
             // TODO: handle fail state
         }
-    }
-
-    /**
-     * Should a given card be shown
-     * @param {Number} index - Index to check
-     * @return {Boolean}
-     */
-    showCard (index: number): boolean {
-        return index === this.current;
     }
 
     /**
