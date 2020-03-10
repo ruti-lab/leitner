@@ -1,6 +1,14 @@
 <template class="whatever">
     <v-container class="rehearsal-container">
-        <h1 class="box-title">{{ title }}</h1>
+        <h1 class="box-title">
+            <span v-if="title">
+                {{ title }}
+            </span>
+            <v-skeleton-loader
+                v-else
+                type="heading"
+            />
+        </h1>
         <div class="card-list">
             <Card
                 v-for="(card, index) in data"

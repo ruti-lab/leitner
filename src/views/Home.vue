@@ -1,16 +1,16 @@
 <template>
     <v-container>
-        <v-row>
-            <Box
-                v-for="(box, index) in boxes"
-                :id="box.id"
-                :key="index"
-                :title="box.title"
-                :nb-cards="box.nbCards"
-                :cards-left-to-add="box.cardsLeftToAdd"
-                :cards-left-to-rehearse="box.cardsLeftToRehearse"
-            />
-        </v-row>
+        <Box
+            v-for="(box, index) in boxes"
+            :id="box.id"
+            :key="index"
+            :title="box.title"
+            :nb-cards="box.nbCards"
+            :cards-left-to-add="box.cardsLeftToAdd"
+            :cards-left-to-rehearse="box.cardsLeftToRehearse"
+        />
+        <Box v-if="!boxes.length" />
+
         <v-btn
             fixed
             fab
