@@ -36,16 +36,18 @@
                 </v-list-item>
             </v-list>
         </v-navigation-drawer>
-        <v-app-bar elevate-on-scroll>
+        <v-app-bar flat>
             <v-app-bar-nav-icon @click="toggleDrawer" />
-            <v-btn
-                icon
-                class="animated-btn"
-                :class="{ hidden: hideBackButton }"
-                to="/"
-            >
-                <v-icon>mdi-arrow-left</v-icon>
-            </v-btn>
+            <span class="btn-wrapper">
+                <v-btn
+                    icon
+                    class="animated-btn"
+                    :class="{ hidden: hideBackButton }"
+                    to="/"
+                >
+                    <v-icon>mdi-home</v-icon>
+                </v-btn>
+            </span>
             <v-toolbar-title class="title">
                 Leitner
             </v-toolbar-title>
@@ -126,14 +128,17 @@ export default class AppBar extends Vue {
 </script>
 
 <style lang="scss" scoped>
-    .animated-btn {
-        transition: width ease-out .2s;
+    .btn-wrapper {
         overflow: hidden;
-    }
 
-    .hidden {
-        width: 0 !important;
-        transition-delay: .25s;
+        .animated-btn {
+            transition: margin ease-out .2s;
+
+            &.hidden {
+                transition-delay: .2s;
+                margin-left: -48px;
+            }
+        }
     }
 
     .title {
