@@ -1,3 +1,12 @@
 html {
     overflow: auto;
 }
+
+.v-list--three-line {
+    .v-list-item {
+        .v-list-item__action {
+            margin-top: 32px;
+            margin-bottom: 32px;
+        }
+    }
+}
